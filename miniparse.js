@@ -20,8 +20,6 @@ var ActXiv = {
 表示設定 (2)
 */
 
-// Replace the YOU with your character's name, ie: var characterName = "Momoko Tomoko";
-var characterName = "Sara Neko";
 
 // set to 1 if you don't want to include LBs as a party max hit
 var noLBInPartyMaxHit = 1;
