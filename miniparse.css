@@ -1,0 +1,81 @@
+ /* 表示設定 (1) */
+    * {
+      /* フォント （一部のフォントは上手く適用されない） */
+      font-family: "Meiryo";
+      font-size: 13px;
+    }
+
+    body, html {
+      margin: 0;
+    }
+
+    html {
+      /* リサイズ用のハンドル
+      * リサイズができる場所はウィンドウ右下の16x16ピクセルの場所
+      * この部分が完全に透明だとマウス入力が透過してしまってサイズを変更できなくなる */
+      background-image: url(images/handle.png);
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      box-sizing: border-box;
+      height: 100%;
+      /* 外枠 */
+      /*border: 1px solid rgba(0,0,0,0.1);*/
+      /* はみ出た内容はスクロールバーを表示させずに隠す
+       * 今のところ、ブラウザへの入力はできないので表示させても無意味 */
+      overflow: hidden;
+      /* 背景色 */
+      background-color: transparent;
+    }
+
+    #wrapper {
+      background: rgba(0, 0, 0, 0.35);
+      box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.35);
+      border-radius: 4px;
+      margin: 12px;
+    }
+
+    #combatantTable {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+
+    /* キャラクターデータのテキストの設定 */
+    #combatantTableBody * {
+      color: #E2EBF5;
+      text-shadow: -1px 0 3px #217AA2, 0 1px 3px #217AA2, 1px 0 3px #217AA2, 0 -1px 3px #217AA2;
+      font-weight: 300;
+      /* はみ出たテキストを「…」で省略する */
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    #combatantTableBody img {
+      height: 18px;
+      /* エンカウント情報とテーブルヘッダ内のテキストの設定 */
+    }
+
+    #encounter, #combatantTableHeader *
+    {
+      color: #DED7BE;
+      text-shadow: -1px 0 2px #795516, 0 1px 2px #795516, 1px 0 2px #795516, 0 -1px 2px #795516;
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    /* テーブルヘッダの下線の設定 */
+    #combatantTableHeader tr {
+      border-bottom: 1px solid #DED7BE;
+    }
+
+    .enc{
+      color: #E2EBF5;
+      text-shadow: -1px 0 3px #217AA2, 0 1px 3px #217AA2, 1px 0 3px #217AA2, 0 -1px 3px #217AA2;
+      font-weight: 300;
+
+      /* はみ出たテキストを「…」で省略する */
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
