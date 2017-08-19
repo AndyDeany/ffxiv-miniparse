@@ -109,10 +109,7 @@ var ActXiv = {
 */
 
 // Replace the YOU with your character's name, ie: var characterName = "Momoko Tomoko";
-var characterName = "YOU";
-
-// set to 1 to make your name colored differently
-var colorUserFlag = 1;
+var characterName = "Andrew Neko";
 
 // set to 1 if you don't want to include LBs as a party max hit
 var noLBInPartyMaxHit = 1;
@@ -177,22 +174,26 @@ function changeCellTextStyle(cell, color, textShadowColor) {
 }
 
 function dpsTextEffect(cell) {
-  cell.innerText = cell.innerText.split(",")[0];
+  cell.innerText = cell.innerText.split(",")[0].split(".")[0];
 }
 
 function userTextEffect(cell) {
+  if (cell.innerText === "_userFlag") {
+    cell.innerText = characterName;
+  }
+
   var playerName = cell.innerText;
-  if (cell.innerText.indexOf("_userFlag") == 0) {
-    if (colorUserFlag == 1) {
-      changeCellTextStyle(cell, "#ffdbea", "#ff68a9");
-      cell.innerText = "Sara Neko";
-    } else {
-      cell.innerText = characterName;
-    }
+  switch (playerName) {
+    case "Sara Neko":
+      var textColor = "#ffdbea";
+      var textShadowColor = "#ff68a9";
+      break;
+    case "Andrew Neko":
+      var textColor = "#e1d3ff";
+      var textShadowColor = "#7d49ff";
+      break;
   }
-  if (playerName === "Andrew Neko") {
-    changeCellTextStyle(cell, "#e1d3ff", "#7d49ff");
-  }
+  changeCellTextStyle(cell, textColor, textShadowColor);
 }
 
 function redTextEffect(cell) {
@@ -449,7 +450,7 @@ function parseActFormatMaxHit(str, data) {
       if (!isNaN(hitValue)) {
         userMaxHitValue = hitValue;
       }
-    userMaxHitString = userMaxHitString.replace("-", " - ")
+    userMaxHitString = userMaxHitString.replace("-", " - ").replace(",", "");
     }
   } else {
   userMaxHitFlag = 0;
@@ -485,7 +486,7 @@ function parseActFormatMaxHit(str, data) {
               partyMaxHitString = combatantName+"-"+maxHitForCombatant;
             }
           }
-          partyMaxHitString = partyMaxHitString.replace(/-/g, " - ")
+          partyMaxHitString = partyMaxHitString.replace(/-/g, " - ").replace(",", "");
         }
       }
     }
