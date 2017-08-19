@@ -194,14 +194,14 @@
             }
 		}
         if (playerName === "Andrew Neko") {
-            changeCellTextStyle("#e1d3ff", "#7d49ff");
+            changeCellTextStyle(cell, "#e1d3ff", "#7d49ff");
         }
 	}
 
 	function redTextEffect(cell) {
 		var num = parseInt(cell.innerText)
 		if (num > 0) {
-            changeCellTextStyle("#ffcdd2", "#fc5161");
+            changeCellTextStyle(cell, "#ffcdd2", "#fc5161");
 		}
 	}
 
@@ -209,9 +209,9 @@
 		var num = parseInt(cell.innerText)
         if (num >= 10) {
             if (num < 30) {
-                changeCellTextStyle("#eef5e2", "#83ad20");
+                changeCellTextStyle(cell, "#eef5e2", "#83ad20");
             } else {
-                changeCellTextStyle("#E2EBF5", "#23af4f");
+                changeCellTextStyle(cell, "#E2EBF5", "#23af4f");
             }
 		}
 	}
@@ -241,7 +241,7 @@
             // デス数が 0 よりも大きいなら
             if (deaths > 0) {
                 // 赤くする
-                changeCellTextStyle("#FFA0A0", "#802020");
+                changeCellTextStyle(cell, "#FFA0A0", "#802020");
             }
         }
 
