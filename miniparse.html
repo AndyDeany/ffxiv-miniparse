@@ -10,7 +10,7 @@
         * {
             /* フォント （一部のフォントは上手く適用されない） */
             font-family: "Meiryo";
-            font-size: 11px;
+            font-size: 12px;
         }
 
         body, html {
@@ -63,7 +63,7 @@
             height: 18px;
             /* エンカウント情報とテーブルヘッダ内のテキストの設定 */
         }
-        
+
         #encounter, #combatantTableHeader *
         {
             color: #DED7BE;
@@ -76,6 +76,18 @@
         #combatantTableHeader tr {
             border-bottom: 1px solid #DED7BE;
         }
+
+         .enc{
+            color: #E2EBF5;
+            text-shadow: -1px 0 3px #217AA2, 0 1px 3px #217AA2, 1px 0 3px #217AA2, 0 -1px 3px #217AA2;
+            font-weight: 300;
+
+            /* はみ出たテキストを「…」で省略する */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
     </style>
     <script>
 
@@ -119,7 +131,7 @@
 	var colorHigherMaxHit = 1;
 
         // エンカウント情報の定義
-        var encounterDefine = "Time: {duration} / Party DPS: {ENCDPS} <br>Party Max Hit: {maxHitCustom}<br>My Max Hit: {myMaxHitCustom}";
+        var encounterDefine = "Time: <span class='enc'>{duration}</span> / Party DPS: <span class='enc'>{ENCDPS}</span> <br>Party Max Hit: {maxHitCustom}<br>My Max Hit: {myMaxHitCustom}";
 
         // 上記のエンカウント情報を HTML として扱うなら true
         var useHTMLEncounterDefine = true;
@@ -162,7 +174,7 @@
 
 	var partyMaxHitBuffer = "";
         var myMaxHitBuffer = "";
-	
+
 	function userTextEffect(cell) {
 		if (cell.innerText.indexOf("_userFlag") == 0) {
 			if (colorUserFlag == 1) {
@@ -324,7 +336,7 @@
 		if (combatant.newName.indexOf("YOU") == 0) {
 			combatant.newName = "_userFlag";
                 }
-		
+
 
                 var tableRow = newTableBody.insertRow(newTableBody.rows.length);
                 for (var i = 0; i < bodyDefine.length; i++) {
@@ -394,7 +406,7 @@
                         var tag = str.slice(openBraceIndex + 1, closeBraceIndex);
                         if (typeof dictionary[tag] !== 'undefined') {
 			    result += dictionary[tag];
-                        } 
+                        }
 			else {
                             console.log("parseActFormat: Unknown tag: " + tag);
                             result += "ERROR";
@@ -421,7 +433,7 @@
 		var userMaxHit = "";
 	    	var combatant = data.Combatant["YOU"];
 	    	if (typeof combatant !== 'undefined') {
-              	  userMaxHitString = combatant["maxhit"];
+              	  userMaxHitString = combatant["maxhit"].replace("-", " ");
 		  var hitValueString = userMaxHitString.slice(userMaxHitString.lastIndexOf("-")+1);
 		  var hitValue = parseInt(hitValueString.replace(/,/g, ""));
 	  	  if (!isNaN(hitValue)) {
@@ -446,7 +458,7 @@
 				   continue;
 				}
 				var combatant = data.Combatant[combatantName];
-				
+
 			  	if (typeof combatant === 'undefined') {
 				    continue;
 				}
@@ -505,7 +517,7 @@
 			}
                         else if (typeof data.Encounter[tag] !== 'undefined') {
 			    result += data.Encounter[tag];
-                        } 
+                        }
 			else {
                             console.log("parseActFormat: Unknown tag: " + tag);
                             result += "ERROR";
