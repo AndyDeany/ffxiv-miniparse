@@ -163,7 +163,7 @@
             { text: "{encdps}", width: "", align: "center" },
             //{ text: "{damage%}", width: "", align: "center" },
 	    //{ text: "{enchps}", width: "", align: "center" },
-            { text: "{healed%}", width: "", align: "center" },
+            { text: "{healed%}", width: "", align: "center", effect: greenTextEffect },
             { text: "{crithit%}", width: "", align: "center" },
             { text: "{DirectHitPct}", width: "", align: "center" },
 	    //{ text: "{misses}", width: "", align: "center", effect: redTextEffect },
@@ -190,6 +190,13 @@
 		if (num > 0) {
 			cell.style.color = "#ffcdd2";
 			cell.style.textShadow = "-1px 0 3px #fc5161, 0 1px 3px #fc5161, 1px 0 3px #fc5161, 0 -1px 3px #fc5161";
+		}
+	}
+    function greenTextEffect(cell) {
+		var num = parseInt(cell.innerText)
+		if (num > 0) {
+			cell.style.color = "#E2EBF5";
+			cell.style.textShadow = "-1px 0 3px #23af4f, 0 1px 3px #23af4f, 1px 0 3px #23af4f, 0 -1px 3px #23af4f";
 		}
 	}
 
@@ -439,6 +446,7 @@
 	  	  if (!isNaN(hitValue)) {
 			userMaxHitValue = hitValue;
 		  }
+          userMaxHitString = userMaxHitString.replace("-", " - ")
 		}
 	    }
             else {
@@ -476,6 +484,7 @@
 					      partyMaxHitString = combatantName+"-"+maxHitForCombatant;
 					  }
 				      }
+                      partyMaxHitString = partyMaxHitString.replace(/-/g, " - ")
 				   }
 				}
 			    }
