@@ -187,24 +187,21 @@
         var playerName = cell.innerText;
 		if (cell.innerText.indexOf("_userFlag") == 0) {
 			if (colorUserFlag == 1) {
-				cell.style.color = "#ffd3e0";
-				cell.style.textShadow = "-1px 0 3px #ff5688, 0 1px 3px #ff5688, 1px 0 3px #ff5688, 0 -1px 3px #ff5688";
+                changeCellTextStyle(cell, "#ffd3e0", "#ff5688");
                 cell.innerText = "Sara Neko";
 			} else {
                 cell.innerText = characterName;
             }
 		}
         if (playerName === "Andrew Neko") {
-            cell.style.color = "#e1d3ff";
-			cell.style.textShadow = "-1px 0 3px #7d49ff, 0 1px 3px #7d49ff, 1px 0 3px #7d49ff, 0 -1px 3px #7d49ff";
+            changeCellTextStyle("#e1d3ff", "#7d49ff");
         }
 	}
 
 	function redTextEffect(cell) {
 		var num = parseInt(cell.innerText)
 		if (num > 0) {
-			cell.style.color = "#ffcdd2";
-			cell.style.textShadow = "-1px 0 3px #fc5161, 0 1px 3px #fc5161, 1px 0 3px #fc5161, 0 -1px 3px #fc5161";
+            changeCellTextStyle("#ffcdd2", "#fc5161");
 		}
 	}
 
@@ -212,11 +209,9 @@
 		var num = parseInt(cell.innerText)
         if (num >= 10) {
             if (num < 30) {
-                cell.style.color = "#eef5e2";
-                cell.style.textShadow = "-1px 0 3px #83ad20, 0 1px 3px #83ad20, 1px 0 3px #83ad20, 0 -1px 3px #83ad20";
+                changeCellTextStyle("#eef5e2", "#83ad20");
             } else {
-                cell.style.color = "#E2EBF5";
-                cell.style.textShadow = "-1px 0 3px #23af4f, 0 1px 3px #23af4f, 1px 0 3px #23af4f, 0 -1px 3px #23af4f";
+                changeCellTextStyle("#E2EBF5", "#23af4f");
             }
 		}
 	}
@@ -246,8 +241,7 @@
             // デス数が 0 よりも大きいなら
             if (deaths > 0) {
                 // 赤くする
-                cell.style.color = "#FFA0A0";
-                cell.style.textShadow = "-1px 0 3px #802020, 0 1px 3px #802020, 1px 0 3px #802020, 0 -1px 3px #802020";
+                changeCellTextStyle("#FFA0A0", "#802020");
             }
         }
 
