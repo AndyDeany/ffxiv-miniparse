@@ -348,6 +348,19 @@ function updateCombatantList(data) {
     }
     combatant.newName = combatantName;
 
+    const JOBS = [
+      "Gla", "Mrd", "Pld", "War", "Drk",
+      "Cnj", "Whm", "Sch", "Ast",
+      "Pgl", "Mnk", "Lnc", "Drg", "Rog", "Nin", "Sam",
+      "Arc", "Brd", "Mch",
+      "Thm", "Blm", "Acn", "Smn", "Rdm",
+      "carbuncle", "Garuda", "Titan", "Ifrit", "Eos", "Selene", "Rook", "Bishop", "choco",
+      "Alc", "Arm", "Bsm", "Crp", "Cul", "Gsm", "Ltw", "Wvr",
+      "Btn", "Fsh", "Min"
+    ]
+    // Don't add NPCs to table (add only JOBS).
+    if (JOBS.indexOf(combatant.JobOrName) == -1) { return }
+
     if (combatant.newName.indexOf("YOU") == 0) {
       combatant.newName = "_userFlag";
     }
