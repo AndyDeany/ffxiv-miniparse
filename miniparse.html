@@ -109,7 +109,7 @@ var ActXiv = {
 */
 
 // Replace the YOU with your character's name, ie: var characterName = "Momoko Tomoko";
-var characterName = "Andrew Neko";
+var characterName = "Sara Neko";
 
 // set to 1 if you don't want to include LBs as a party max hit
 var noLBInPartyMaxHit = 1;
@@ -450,7 +450,7 @@ function parseActFormatMaxHit(str, data) {
       if (!isNaN(hitValue)) {
         userMaxHitValue = hitValue;
       }
-    userMaxHitString = userMaxHitString.replace("-", " - ").replace(",", "");
+    userMaxHitString = userMaxHitString.replace("-", " - ").replace(",", "").replace(" ", "");
     }
   } else {
   userMaxHitFlag = 0;
@@ -486,7 +486,7 @@ function parseActFormatMaxHit(str, data) {
               partyMaxHitString = combatantName+"-"+maxHitForCombatant;
             }
           }
-          partyMaxHitString = partyMaxHitString.replace(/-/g, " - ").replace(",", "");
+          partyMaxHitString = partyMaxHitString.replace(/-/g, " - ").replace(",", "").replace(" ", "");
         }
       }
     }
