@@ -160,7 +160,7 @@
             //{ text: rankingText, width: "", align: "center"},
             { text: "{newName}", width: "", effect: userTextEffect },
             { html: "<img src='./images/glow/{JobOrName}.png' onError=\"this.onerror=null;this.src='./images/glow/error.png';\" />", width: "5%", align: "center" },
-            { text: "{encdps}", width: "", align: "center" },
+            { text: "{encdps}", width: "", align: "center", effect: dpsTextEffect},
             //{ text: "{damage%}", width: "", align: "center" },
 	    //{ text: "{enchps}", width: "", align: "center" },
             { text: "{healed%}", width: "", align: "center", effect: healTextEffect },
@@ -181,6 +181,10 @@
                                  ", 0 1px 3px " + textShadowColor +
                                  ", 1px 0 3px " + textShadowColor +
                                  ", 0 -1px 3px " + textShadowColor);
+    }
+
+    function dpsTextEffect(cell) {
+        cell.innerText = cell.innerText.split(",")[0];
     }
 
 	function userTextEffect(cell) {
