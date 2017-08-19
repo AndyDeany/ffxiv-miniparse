@@ -131,7 +131,7 @@
 	var colorHigherMaxHit = 1;
 
         // エンカウント情報の定義
-        var encounterDefine = "Time: <span class='enc'>{duration}</span> / Party DPS: <span class='enc'>{ENCDPS}</span> <br>Party Max Hit: {maxHitCustom}<br>My Max Hit: {myMaxHitCustom}";
+        var encounterDefine = "Time: <span class='enc'>{duration}</span> / Party DPS: <span class='enc'>{ENCDPS}</span> <br>Party Max Hit: <span class='enc'>{maxHitCustom}</span><br>My Max Hit: <span class='enc'>{myMaxHitCustom}</span>";
 
         // 上記のエンカウント情報を HTML として扱うなら true
         var useHTMLEncounterDefine = true;
@@ -433,7 +433,7 @@
 		var userMaxHit = "";
 	    	var combatant = data.Combatant["YOU"];
 	    	if (typeof combatant !== 'undefined') {
-              	  userMaxHitString = combatant["maxhit"].replace("-", " ");
+              	  userMaxHitString = combatant["maxhit"];
 		  var hitValueString = userMaxHitString.slice(userMaxHitString.lastIndexOf("-")+1);
 		  var hitValue = parseInt(hitValueString.replace(/,/g, ""));
 	  	  if (!isNaN(hitValue)) {
