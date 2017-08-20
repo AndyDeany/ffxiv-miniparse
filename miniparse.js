@@ -338,6 +338,9 @@ function parseActFormat(str, dictionary) {
 
   // Momoko's custom maxhit formatting
 function parseActFormatMaxHit(str, data) {
+  function formatMaxHitString(maxHitString) {
+    return maxHitString.replace(/-/g, " - ").replace(",", "").replace(" ", "");
+  }
   var result = "";
 
   var currentIndex = 0;
@@ -356,7 +359,7 @@ function parseActFormatMaxHit(str, data) {
       if (!isNaN(hitValue)) {
         userMaxHitValue = hitValue;
       }
-    userMaxHitString = userMaxHitString.replace("-", " - ").replace(",", "").replace(" ", "");
+    userMaxHitString = formatMaxHitString(userMaxHitString);
     }
   } else {
   userMaxHitFlag = 0;
@@ -392,7 +395,7 @@ function parseActFormatMaxHit(str, data) {
               partyMaxHitString = combatantName+"-"+maxHitForCombatant;
             }
           }
-          partyMaxHitString = partyMaxHitString.replace(/-/g, " - ").replace(",", "").replace(" ", "");
+          partyMaxHitString = formatMaxHitString(partyMaxHitString);
         }
       }
     }
