@@ -72,7 +72,7 @@ function dpsTextEffect(cell) {
 
 function userTextEffect(cell) {
   if (cell.innerText === "_userFlag") {
-    cell.innerText = characterName;
+    cell.innerText = PLAYER_NAME;
   }
 
   var playerName = cell.innerText;
@@ -390,7 +390,7 @@ function parseActFormatMaxHit(str, data) {
           if (hitValue > partyMaxHitValue) {
             partyMaxHitValue = hitValue;
             if (combatantName == "YOU") {
-              partyMaxHitString = characterName+"-"+maxHitForCombatant;
+              partyMaxHitString = PLAYER_NAME+"-"+maxHitForCombatant;
             } else {
               partyMaxHitString = combatantName+"-"+maxHitForCombatant;
             }

@@ -1,4 +1,4 @@
-var characterName = "Sara Neko";
+const PLAYER_NAME = "Sara Neko";
 
 // set to 1 if you don't want to include LBs as a party max hit
 var noLBInPartyMaxHit = 1;
