@@ -17,10 +17,10 @@ var colorHigherMaxHit = 1;
 function blueText(text) {
   return "<span class='enc'>" + text + "</span>";
 }
-var encounterDefine = "";
-encounterDefine += "Time: " + blueText("{duration}") + " &nbsp; ";
-encounterDefine += "Party DPS: " + blueText("{ENCDPS}") + " <br>";
-encounterDefine += PARTY_MAX_HIT_TITLE + ": " + blueText("{maxHitCustom}") + "<br>";
-encounterDefine += PLAYER_MAX_HIT_TITLE + ": " + blueText("{myMaxHitCustom}");
+var encounterDefine = `
+  Time: ${blueText("{duration}")} &nbsp; Party DPS: ${blueText("{ENCDPS}")}<br>
+  ${PARTY_MAX_HIT_TITLE}: ${blueText("{maxHitCustom}")}<br>
+  ${PLAYER_MAX_HIT_TITLE}: ${blueText("{myMaxHitCustom}")}
+`
 
 var useHTMLEncounterDefine = true;  // Must be true for encounterDefine to render HTML
