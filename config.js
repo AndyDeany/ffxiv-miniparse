@@ -23,5 +23,4 @@ encounterDefine += "Party DPS: " + blueText("{ENCDPS}") + " <br>";
 encounterDefine += PARTY_MAX_HIT_TITLE + ": " + blueText("{maxHitCustom}") + "<br>";
 encounterDefine += PLAYER_MAX_HIT_TITLE + ": " + blueText("{myMaxHitCustom}");
 
-// 上記のエンカウント情報を HTML として扱うなら true
-var useHTMLEncounterDefine = true;
+var useHTMLEncounterDefine = true;  // Must be true for encounterDefine to render HTML
