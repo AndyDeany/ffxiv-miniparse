@@ -14,12 +14,14 @@ var noMyMaxHitInPartyMaxHit = 1;
 // only does something if both {maxHitCustom} and {myMaxHitCustom} are in encounterDefine
 var colorHigherMaxHit = 1;
 
-// エンカウント情報の定義
+function blueText(text) {
+  return "<span class='enc'>" + text + "</span>";
+}
 var encounterDefine = "";
-encounterDefine += "Time: <span class='enc'>{duration}</span> &nbsp; ";
-encounterDefine += "Party DPS: <span class='enc'>{ENCDPS}</span> <br>";
-encounterDefine += PARTY_MAX_HIT_TITLE + ": <span class='enc'>{maxHitCustom}</span><br>";
-encounterDefine += PLAYER_MAX_HIT_TITLE + ": <span class='enc'>{myMaxHitCustom}</span>";
+encounterDefine += "Time: " + blueText("{duration}") + " &nbsp; ";
+encounterDefine += "Party DPS: " + blueText("{ENCDPS}") + " <br>";
+encounterDefine += PARTY_MAX_HIT_TITLE + ": " + blueText("{maxHitCustom}") + "<br>";
+encounterDefine += PLAYER_MAX_HIT_TITLE + ": " + blueText("{myMaxHitCustom}");
 
 // 上記のエンカウント情報を HTML として扱うなら true
 var useHTMLEncounterDefine = true;
