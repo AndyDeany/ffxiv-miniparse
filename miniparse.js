@@ -19,7 +19,16 @@ var ActXiv = {
 
 表示設定 (2)
 */
+function blueText(text) {
+  return "<span class='enc'>" + text + "</span>";
+}
 
+var encounterDefine = `
+  Time: ${blueText("{duration}")} &nbsp; Party DPS: ${blueText("{ENCDPS}")}<br>
+  ${PARTY_MAX_HIT_TITLE}: ${blueText("{maxHitCustom}")}<br>
+  ${PLAYER_MAX_HIT_TITLE}: ${blueText("{myMaxHitCustom}")}
+`
+var useHTMLEncounterDefine = true;  // Must be true for encounterDefine to render HTML
 
 // ヘッダの定義
 var headerDefine = [
