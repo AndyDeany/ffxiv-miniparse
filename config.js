@@ -3,6 +3,10 @@ const PLAYER_NAME = "Sara Neko";
 const PARTY_MAX_HIT_TITLE = "Master Hit";
 const PLAYER_MAX_HIT_TITLE = "Kitt Hit";
 
+// * Flags * //
+// Set to true to hide NPCs. This is an experimental feature - use with caution.
+const FLAG_HIDE_NPCS = false;
+
 
 // set to 1 if you don't want to include LBs as a party max hit
 var noLBInPartyMaxHit = 1;

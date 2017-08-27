@@ -261,7 +261,7 @@ function updateCombatantList(data) {
       "Btn", "Fsh", "Min"
     ]
     // Don't add NPCs to table (add only JOBS).
-    if (JOBS.indexOf(combatant.JobOrName) == -1) { return }
+    if (FLAG_HIDE_NPCS && JOBS.indexOf(combatant.JobOrName) == -1) { return }
 
     if (combatant.newName.indexOf("YOU") == 0) {
       combatant.newName = "_userFlag";
