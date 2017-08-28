@@ -27,21 +27,20 @@ var headerDefine = [
 ];
 
 // 表示するデータの定義
-var bodyDefine = [
-  //{ text: rankingText, width: "", align: "center"},
-  { text: "{newName}", width: "", effect: userTextEffect },
-  { html: "<img src='./images/{JobOrName}.png' onError=\"this.onerror=null;this.src='./images/error.png';\" />", width: "5%", align: "center" },
-  { text: "{encdps}", width: "", align: "center", effect: dpsTextEffect},
-  //{ text: "{damage%}", width: "", align: "center" },
-  //{ text: "{enchps}", width: "", align: "center" },
-  { text: "{healed%}", width: "", align: "center", effect: healTextEffect },
-  { text: "{crithit%}", width: "", align: "center" },
-  { text: "{DirectHitPct}", width: "", align: "center" },
-  //{ text: "{misses}", width: "", align: "center", effect: redTextEffect },
-  { text: "{deaths}", width: "", align: "center", effect: redTextEffect },
-  { text: "{OverHealPct}", width: "", align: "center" },
-  //{ text: "{maxhit}", width: "", align: "left"},
-];
+var bodyDefine = [];
+// bodyDefine.push({ text: rankingText, width: "", align: "center"});
+bodyDefine.push({text: "{newName}", width: "", effect: userTextEffect});
+bodyDefine.push({html: "<img src='./images/{JobOrName}.png' onError=\"this.onerror=null;this.src='./images/error.png';\" />", width: "5%", align: "center"});
+bodyDefine.push({text: "{encdps}", width: "", align: "center", effect: dpsTextEffect});
+// bodyDefine.push({text: "{damage%}", width: "", align: "center"});
+// bodyDefine.push({text: "{enchps}", width: "", align: "center"});
+bodyDefine.push({text: "{healed%}", width: "", align: "center", effect: healTextEffect});
+bodyDefine.push({text: "{crithit%}", width: "", align: "center"});
+bodyDefine.push({text: "{DirectHitPct}", width: "", align: "center"});
+// bodyDefine.push({text: "{misses}", width: "", align: "center", effect: redTextEffect});
+bodyDefine.push({text: "{deaths}", width: "", align: "center", effect: redTextEffect});
+bodyDefine.push({text: "{OverHealPct}", width: "", align: "center"});
+// bodyDefine.push({text: "{maxhit}", width: "", align: "left"});
 
 var partyMaxHitBuffer = "";
 var myMaxHitBuffer = "";
