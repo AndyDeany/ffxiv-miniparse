@@ -251,6 +251,7 @@ function updateCombatantList(data) {
     combatant.newName = combatantName;
 
     const JOBS = [
+      "YOU",
       "Gla", "Mrd", "Pld", "War", "Drk",
       "Cnj", "Whm", "Sch", "Ast",
       "Pgl", "Mnk", "Lnc", "Drg", "Rog", "Nin", "Sam",
