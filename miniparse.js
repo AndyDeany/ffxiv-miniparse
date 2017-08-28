@@ -218,6 +218,18 @@ function updateCombatantListHeader() {
   table.tHead = tableHeader;
 }
 
+const JOBS = [
+  "YOU",
+  "Gla", "Mrd", "Pld", "War", "Drk",
+  "Cnj", "Whm", "Sch", "Ast",
+  "Pgl", "Mnk", "Lnc", "Drg", "Rog", "Nin", "Sam",
+  "Arc", "Brd", "Mch",
+  "Thm", "Blm", "Acn", "Smn", "Rdm",
+  "carbuncle", "Garuda", "Titan", "Ifrit", "Eos", "Selene", "Rook", "Bishop", "choco",
+  "Alc", "Arm", "Bsm", "Crp", "Cul", "Gsm", "Ltw", "Wvr",
+  "Btn", "Fsh", "Min"
+]
+
 // プレイヤーリストを更新する
 function updateCombatantList(data) {
   // 要素取得＆作成
@@ -250,17 +262,6 @@ function updateCombatantList(data) {
     }
     combatant.newName = combatantName;
 
-    const JOBS = [
-      "YOU",
-      "Gla", "Mrd", "Pld", "War", "Drk",
-      "Cnj", "Whm", "Sch", "Ast",
-      "Pgl", "Mnk", "Lnc", "Drg", "Rog", "Nin", "Sam",
-      "Arc", "Brd", "Mch",
-      "Thm", "Blm", "Acn", "Smn", "Rdm",
-      "carbuncle", "Garuda", "Titan", "Ifrit", "Eos", "Selene", "Rook", "Bishop", "choco",
-      "Alc", "Arm", "Bsm", "Crp", "Cul", "Gsm", "Ltw", "Wvr",
-      "Btn", "Fsh", "Min"
-    ]
     if (FLAG_HIDE_NPCS && JOBS.indexOf(combatant.JobOrName) == -1) {
       // Don't add NPCs to table (add only JOBS).
       if (DEBUG) { console.log(`Skipping combatant: ${combatant.JobOrName}`); }
