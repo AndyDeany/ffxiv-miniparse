@@ -1,7 +1,7 @@
-const PLAYER_NAME = "Sara Neko";
+const PLAYER_NAME = "You";
 
-const PARTY_MAX_HIT_TITLE = "Master Hit";
-const PLAYER_MAX_HIT_TITLE = "Kitt Hit";
+const PARTY_MAX_HIT_TITLE = "Party max hit";
+const PLAYER_MAX_HIT_TITLE = "Your max hit";
 
 // * Flags * //
 // Set to true to hide NPCs. This is an experimental feature - use with caution.
