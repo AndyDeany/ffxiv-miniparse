@@ -11,34 +11,50 @@ var useHTMLEncounterDefine = true;  // Must be true for encounterDefine to rende
 
 // ヘッダの定義
 var headerDefine = [];
-// bodyDefine.push({ text: "#", width: "5%", align: "center" },
-headerDefine.push({text: "Name", width: "10%", align: "left"});
-headerDefine.push({text: "Job", width: "5%", align: "center"});
-headerDefine.push({text: "DPS", width: "5%", align: "center"},
-// headerDefine.push({text: "DPS %", width: "5%", align: "center"});
-// headerDefine.push({text: "HPS", width: "5%", align: "center"});
-headerDefine.push({text: "Heal %", width: "5%", align: "center"});
-headerDefine.push({text: "Crit %", width: "5%", align: "center"});
-headerDefine.push({text: "DH %", width: "5%", align: "center"});
-// headerDefine.push({text: "Misses", width: "5%", align: "center"});
-headerDefine.push({text: "RIP", width: "5%", align: "center"});
-headerDefine.push({text: "+Heal %", width: "5%", align: "center"});
-// headerDefine.push({text: "Max Hit", width: "14%", align: "center"});
 
 // 表示するデータの定義
 var bodyDefine = [];
+// bodyDefine.push({ text: "#", width: "5%", align: "center" },
 // bodyDefine.push({ text: rankingText, width: "", align: "center"});
-bodyDefine.push({text: "{newName}", width: "", effect: userTextEffect});
-bodyDefine.push({html: "<img src='./images/{JobOrName}.png' onError=\"this.onerror=null;this.src='./images/error.png';\" />", width: "5%", align: "center"});
+
+headerDefine.push({text: "Name", width: "10%", align: "left"});
+if (FLAG_COMBINE_NAME_AND_JOB) {
+  userHTML = "<img src='./images/{JobOrName}.png' style='margin-bottom:-5px;'/> {newName}"
+  bodyDefine.push({html: userHTML, width: "", effect: userTextEffect});
+} else {
+  bodyDefine.push({text: "{newName}", width: "", effect: userTextEffect});
+  headerDefine.push({text: "Job", width: "5%", align: "center"});
+  bodyDefine.push({html: "<img src='./images/{JobOrName}.png' onError=\"this.onerror=null;this.src='./images/error.png';\" />", width: "5%", align: "center"});
+}
+
+headerDefine.push({text: "DPS", width: "5%", align: "center"});
 bodyDefine.push({text: "{encdps}", width: "", align: "center", effect: dpsTextEffect});
+
+// headerDefine.push({text: "DPS %", width: "5%", align: "center"});
 // bodyDefine.push({text: "{damage%}", width: "", align: "center"});
+
+// headerDefine.push({text: "HPS", width: "5%", align: "center"});
 // bodyDefine.push({text: "{enchps}", width: "", align: "center"});
+
+headerDefine.push({text: "Heal %", width: "5%", align: "center"});
 bodyDefine.push({text: "{healed%}", width: "", align: "center", effect: healTextEffect});
+
+headerDefine.push({text: "Crit %", width: "5%", align: "center"});
 bodyDefine.push({text: "{crithit%}", width: "", align: "center"});
+
+headerDefine.push({text: "DH %", width: "5%", align: "center"});
 bodyDefine.push({text: "{DirectHitPct}", width: "", align: "center"});
+
+// headerDefine.push({text: "Misses", width: "5%", align: "center"});
 // bodyDefine.push({text: "{misses}", width: "", align: "center", effect: redTextEffect});
+
+headerDefine.push({text: "RIP", width: "5%", align: "center"});
 bodyDefine.push({text: "{deaths}", width: "", align: "center", effect: redTextEffect});
+
+headerDefine.push({text: "+Heal %", width: "5%", align: "center"});
 bodyDefine.push({text: "{OverHealPct}", width: "", align: "center"});
+
+// headerDefine.push({text: "Max Hit", width: "14%", align: "center"});
 // bodyDefine.push({text: "{maxhit}", width: "", align: "left"});
 
 var partyMaxHitBuffer = "";

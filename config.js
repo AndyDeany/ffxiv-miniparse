@@ -7,6 +7,9 @@ var PLAYER_MAX_HIT_TITLE = "Your max hit";
 // Set to true to hide NPCs. This is an experimental feature - use with caution.
 var FLAG_HIDE_NPCS = false;
 
+// Set to true to combine the Name and Job columns.
+var FLAG_COMBINE_NAME_AND_JOB = false;
+
 
 // set to 1 if you don't want to include LBs as a party max hit
 var noLBInPartyMaxHit = 1;
