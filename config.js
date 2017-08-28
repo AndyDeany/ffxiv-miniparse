@@ -1,11 +1,11 @@
-const PLAYER_NAME = "You";
+var PLAYER_NAME = "You";
 
-const PARTY_MAX_HIT_TITLE = "Party max hit";
-const PLAYER_MAX_HIT_TITLE = "Your max hit";
+var PARTY_MAX_HIT_TITLE = "Party max hit";
+var PLAYER_MAX_HIT_TITLE = "Your max hit";
 
 // * Flags * //
 // Set to true to hide NPCs. This is an experimental feature - use with caution.
-const FLAG_HIDE_NPCS = false;
+var FLAG_HIDE_NPCS = false;
 
 
 // set to 1 if you don't want to include LBs as a party max hit
