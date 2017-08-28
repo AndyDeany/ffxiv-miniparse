@@ -18,3 +18,8 @@ var noMyMaxHitInPartyMaxHit = 1;
 // set to 1 to highlight the higher max hit between user and party
 // only does something if both {maxHitCustom} and {myMaxHitCustom} are in encounterDefine
 var colorHigherMaxHit = 1;
+
+
+// Don't change this unless you know what you're doing.
+// Setting this to true will use more computing power.
+const DEBUG = false;

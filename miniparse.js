@@ -261,8 +261,11 @@ function updateCombatantList(data) {
       "Alc", "Arm", "Bsm", "Crp", "Cul", "Gsm", "Ltw", "Wvr",
       "Btn", "Fsh", "Min"
     ]
-    // Don't add NPCs to table (add only JOBS).
-    if (FLAG_HIDE_NPCS && JOBS.indexOf(combatant.JobOrName) == -1) { return }
+    if (FLAG_HIDE_NPCS && JOBS.indexOf(combatant.JobOrName) == -1) {
+      // Don't add NPCs to table (add only JOBS).
+      if (DEBUG) { console.log(`Skipping combatant: ${combatant.JobOrName}`); }
+      return;
+    }
 
     if (combatant.newName.indexOf("YOU") == 0) {
       combatant.newName = "_userFlag";
