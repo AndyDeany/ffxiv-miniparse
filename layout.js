@@ -10,21 +10,20 @@ var encounterDefine = `
 var useHTMLEncounterDefine = true;  // Must be true for encounterDefine to render HTML
 
 // ヘッダの定義
-var headerDefine = [
-  //{ text: "#", width: "5%", align: "center" },
-  { text: "Name", width: "10%", align: "left" },
-  { text: "Job", width: "5%", align: "center" },
-  { text: "DPS", width: "5%", align: "center"},
-  //{ text: "DPS %", width: "5%", align: "center"},
-  //{ text: "HPS", width: "5%", align: "center"},
-  { text: "Heal %", width: "5%", align: "center"},
-  { text: "Crit %", width: "5%", align: "center" },
-  { text: "DH %", width: "5%", align: "center" },
-  //{ text: "Misses", width: "5%", align: "center" },
-  { text: "RIP", width: "5%", align: "center" },
-  { text: "+Heal %", width: "5%", align: "center"},
-  //{ text: "Max Hit", width: "14%", align: "center" },
-];
+var headerDefine = [];
+// bodyDefine.push({ text: "#", width: "5%", align: "center" },
+headerDefine.push({text: "Name", width: "10%", align: "left"});
+headerDefine.push({text: "Job", width: "5%", align: "center"});
+headerDefine.push({text: "DPS", width: "5%", align: "center"},
+// headerDefine.push({text: "DPS %", width: "5%", align: "center"});
+// headerDefine.push({text: "HPS", width: "5%", align: "center"});
+headerDefine.push({text: "Heal %", width: "5%", align: "center"});
+headerDefine.push({text: "Crit %", width: "5%", align: "center"});
+headerDefine.push({text: "DH %", width: "5%", align: "center"});
+// headerDefine.push({text: "Misses", width: "5%", align: "center"});
+headerDefine.push({text: "RIP", width: "5%", align: "center"});
+headerDefine.push({text: "+Heal %", width: "5%", align: "center"});
+// headerDefine.push({text: "Max Hit", width: "14%", align: "center"});
 
 // 表示するデータの定義
 var bodyDefine = [];
