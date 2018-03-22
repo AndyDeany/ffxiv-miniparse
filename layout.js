@@ -64,7 +64,7 @@ function changeCellTextStyle(cell, color, textShadowColor) {
   cell.style.color = color;
   cell.style.textShadow = `
     -1px 0 3px ${textShadowColor}, 0 1px 3px ${textShadowColor},
-    1px 0 3px ${textShadowColor}, 0 -1px 3px ${textShadowColor};
+    1px 0 3px ${textShadowColor}, 0 -1px 3px ${textShadowColor}
   `
 }
 
