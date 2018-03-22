@@ -10,6 +10,9 @@ var FLAG_HIDE_NPCS = false;
 // Set to true to combine the Name and Job columns.
 var FLAG_COMBINE_NAME_AND_JOB = false;
 
+// Set to true to show party max hit and personal max hit
+var FLAG_SHOW_MAX_HITS = true;
+
 
 // set to 1 if you don't want to include LBs as a party max hit
 var noLBInPartyMaxHit = 1;

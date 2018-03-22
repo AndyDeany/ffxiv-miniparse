@@ -8,7 +8,10 @@ PLAYER_MAX_HIT_TITLE = "Kitt Hit";
 FLAG_HIDE_NPCS = true;
 
 // Set to true to combine the Name and Job columns.
-var FLAG_COMBINE_NAME_AND_JOB = false;
+FLAG_COMBINE_NAME_AND_JOB = true;
+
+// Set to true to show party max hit and personal max hit
+FLAG_SHOW_MAX_HITS = false;
 
 
 // set to 1 if you don't want to include LBs as a party max hit
