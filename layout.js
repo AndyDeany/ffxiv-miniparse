@@ -73,12 +73,7 @@ function dpsTextEffect(cell) {
 }
 
 function userTextEffect(cell) {
-  if (cell.innerText === "_userFlag") {
-    cell.innerText = PLAYER_NAME;
-  }
-
-  var playerName = cell.innerText;
-  switch (playerName) {
+  switch (cell.innerText.trim()) {
     case "Sara Neko":
       var textColor = "#ffdbea";
       var textShadowColor = "#ff68a9";

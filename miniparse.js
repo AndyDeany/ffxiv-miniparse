@@ -174,7 +174,7 @@ function updateCombatantList(data) {
     }
 
     if (combatant.newName.indexOf("YOU") == 0) {
-      combatant.newName = "_userFlag";
+      combatant.newName = PLAYER_NAME;
     }
 
     var tableRow = newTableBody.insertRow(newTableBody.rows.length);
