@@ -28,4 +28,4 @@ var colorHigherMaxHit = 1;
 
 // Don't change this unless you know what you're doing.
 // Setting this to true will use more computing power.
-const DEBUG = false;
+var DEBUG = false;
