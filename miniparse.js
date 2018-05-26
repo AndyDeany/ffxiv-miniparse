@@ -170,7 +170,7 @@ function updateCombatantList(data) {
     if (FLAG_HIDE_NPCS && JOBS.indexOf(combatant.JobOrName) == -1) {
       // Don't add NPCs to table (add only JOBS).
       if (DEBUG) { console.log(`Skipping combatant: ${combatant.JobOrName}`); }
-      return;
+      continue;
     }
 
     if (combatant.newName.indexOf("YOU") == 0) {
