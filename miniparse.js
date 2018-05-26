@@ -21,92 +21,6 @@ var ActXiv = {
 */
 
 
-// ヘッダの定義
-var headerDefine = [
-  //{ text: "#", width: "5%", align: "center" },
-  { text: "Name", width: "10%", align: "left" },
-  { text: "Job", width: "5%", align: "center" },
-  { text: "DPS", width: "5%", align: "center"},
-  //{ text: "DPS %", width: "5%", align: "center"},
-  //{ text: "HPS", width: "5%", align: "center"},
-  { text: "Heal %", width: "5%", align: "center"},
-  { text: "Crit %", width: "5%", align: "center" },
-  { text: "DH %", width: "5%", align: "center" },
-  //{ text: "Misses", width: "5%", align: "center" },
-  { text: "RIP", width: "5%", align: "center" },
-  { text: "+Heal %", width: "5%", align: "center"},
-  //{ text: "Max Hit", width: "14%", align: "center" },
-];
-
-// 表示するデータの定義
-var bodyDefine = [
-  //{ text: rankingText, width: "", align: "center"},
-  { text: "{newName}", width: "", effect: userTextEffect },
-  { html: "<img src='./images/{JobOrName}.png' onError=\"this.onerror=null;this.src='./images/error.png';\" />", width: "5%", align: "center" },
-  { text: "{encdps}", width: "", align: "center", effect: dpsTextEffect},
-  //{ text: "{damage%}", width: "", align: "center" },
-  //{ text: "{enchps}", width: "", align: "center" },
-  { text: "{healed%}", width: "", align: "center", effect: healTextEffect },
-  { text: "{crithit%}", width: "", align: "center" },
-  { text: "{DirectHitPct}", width: "", align: "center" },
-  //{ text: "{misses}", width: "", align: "center", effect: redTextEffect },
-  { text: "{deaths}", width: "", align: "center", effect: redTextEffect },
-  { text: "{OverHealPct}", width: "", align: "center" },
-  //{ text: "{maxhit}", width: "", align: "left"},
-];
-
-var partyMaxHitBuffer = "";
-var myMaxHitBuffer = "";
-
-function changeCellTextStyle(cell, color, textShadowColor) {
-  cell.style.color = color;
-  cell.style.textShadow = ("-1px 0 3px " + textShadowColor +
-                           ", 0 1px 3px " + textShadowColor +
-                           ", 1px 0 3px " + textShadowColor +
-                           ", 0 -1px 3px " + textShadowColor);
-}
-
-function dpsTextEffect(cell) {
-  cell.innerText = cell.innerText.split(",")[0].split(".")[0];
-}
-
-function userTextEffect(cell) {
-  if (cell.innerText === "_userFlag") {
-    cell.innerText = characterName;
-  }
-
-  var playerName = cell.innerText;
-  switch (playerName) {
-    case "Sara Neko":
-      var textColor = "#ffdbea";
-      var textShadowColor = "#ff68a9";
-      break;
-    case "Andrew Neko":
-      var textColor = "#e1d3ff";
-      var textShadowColor = "#7d49ff";
-      break;
-  }
-  changeCellTextStyle(cell, textColor, textShadowColor);
-}
-
-function redTextEffect(cell) {
-  var num = parseInt(cell.innerText)
-  if (num > 0) {
-      changeCellTextStyle(cell, "#ffcdd2", "#fc5161");
-  }
-}
-
-function healTextEffect(cell) {
-  var num = parseInt(cell.innerText)
-  if (num >= 10) {
-    if (num < 30) {
-      changeCellTextStyle(cell, "#eef5e2", "#83ad20");
-    } else {
-      changeCellTextStyle(cell, "#E2EBF5", "#23af4f");
-    }
-  }
-}
-
 
 /* 順位を表示する（text に関数を指定する例）
  * 引数:
@@ -209,6 +123,18 @@ function updateCombatantListHeader() {
   table.tHead = tableHeader;
 }
 
+const JOBS = [
+  "YOU",
+  "Gla", "Mrd", "Pld", "War", "Drk",
+  "Cnj", "Whm", "Sch", "Ast",
+  "Pgl", "Mnk", "Lnc", "Drg", "Rog", "Nin", "Sam",
+  "Arc", "Brd", "Mch",
+  "Thm", "Blm", "Acn", "Smn", "Rdm",
+  "carbuncle", "Garuda", "Titan", "Ifrit", "Eos", "Selene", "Rook", "Bishop", "choco",
+  "Alc", "Arm", "Bsm", "Crp", "Cul", "Gsm", "Ltw", "Wvr",
+  "Btn", "Fsh", "Min"
+]
+
 // プレイヤーリストを更新する
 function updateCombatantList(data) {
   // 要素取得＆作成
@@ -241,21 +167,14 @@ function updateCombatantList(data) {
     }
     combatant.newName = combatantName;
 
-    const JOBS = [
-      "Gla", "Mrd", "Pld", "War", "Drk",
-      "Cnj", "Whm", "Sch", "Ast",
-      "Pgl", "Mnk", "Lnc", "Drg", "Rog", "Nin", "Sam",
-      "Arc", "Brd", "Mch",
-      "Thm", "Blm", "Acn", "Smn", "Rdm",
-      "carbuncle", "Garuda", "Titan", "Ifrit", "Eos", "Selene", "Rook", "Bishop", "choco",
-      "Alc", "Arm", "Bsm", "Crp", "Cul", "Gsm", "Ltw", "Wvr",
-      "Btn", "Fsh", "Min"
-    ]
-    // Don't add NPCs to table (add only JOBS).
-    if (JOBS.indexOf(combatant.JobOrName) == -1) { return }
+    if (FLAG_HIDE_NPCS && JOBS.indexOf(combatant.JobOrName) == -1) {
+      // Don't add NPCs to table (add only JOBS).
+      if (DEBUG) { console.log(`Skipping combatant: ${combatant.JobOrName}`); }
+      continue;
+    }
 
     if (combatant.newName.indexOf("YOU") == 0) {
-      combatant.newName = "_userFlag";
+      combatant.newName = PLAYER_NAME;
     }
 
     var tableRow = newTableBody.insertRow(newTableBody.rows.length);
@@ -338,6 +257,9 @@ function parseActFormat(str, dictionary) {
 
   // Momoko's custom maxhit formatting
 function parseActFormatMaxHit(str, data) {
+  function formatMaxHitString(maxHitString) {
+    return maxHitString.replace(/-/g, " - ").replace(",", "").replace(" ", "");
+  }
   var result = "";
 
   var currentIndex = 0;
@@ -356,7 +278,7 @@ function parseActFormatMaxHit(str, data) {
       if (!isNaN(hitValue)) {
         userMaxHitValue = hitValue;
       }
-    userMaxHitString = userMaxHitString.replace("-", " - ").replace(",", "").replace(" ", "");
+    userMaxHitString = formatMaxHitString(userMaxHitString);
     }
   } else {
   userMaxHitFlag = 0;
@@ -387,12 +309,12 @@ function parseActFormatMaxHit(str, data) {
           if (hitValue > partyMaxHitValue) {
             partyMaxHitValue = hitValue;
             if (combatantName == "YOU") {
-              partyMaxHitString = characterName+"-"+maxHitForCombatant;
+              partyMaxHitString = PLAYER_NAME+"-"+maxHitForCombatant;
             } else {
               partyMaxHitString = combatantName+"-"+maxHitForCombatant;
             }
           }
-          partyMaxHitString = partyMaxHitString.replace(/-/g, " - ").replace(",", "").replace(" ", "");
+          partyMaxHitString = formatMaxHitString(partyMaxHitString);
         }
       }
     }
