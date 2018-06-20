@@ -1,4 +1,4 @@
-PLAYER_NAME = "Sara Neko";
+PLAYER_NAME = "Andrew Neko";
 
 PARTY_MAX_HIT_TITLE = "Master Hit";
 PLAYER_MAX_HIT_TITLE = "Kitt Hit";
