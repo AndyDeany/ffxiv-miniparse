@@ -84,6 +84,14 @@ function userTextEffect(cell) {
       var textColor = "#e1d3ff";
       var textShadowColor = "#7d49ff";
       break;
+    case "Miss Lexi":
+      var textColor = "#fff2f3";
+      var textShadowColor = "#bf4900";
+      break;
+    case "Noelle Nelhah":
+      var textColor = "#d8ffdf";
+      var textShadowColor = "#008e6d";
+      break;
   }
   changeCellTextStyle(cell, textColor, textShadowColor);
 }
