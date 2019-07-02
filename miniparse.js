@@ -125,12 +125,12 @@ function updateCombatantListHeader() {
 
 const JOBS = [
   "YOU",
-  "Gla", "Mrd", "Pld", "War", "Drk",
+  "Gla", "Mrd", "Pld", "War", "Drk", "Gnb",
   "Cnj", "Whm", "Sch", "Ast",
   "Pgl", "Mnk", "Lnc", "Drg", "Rog", "Nin", "Sam",
-  "Arc", "Brd", "Mch",
+  "Arc", "Brd", "Mch", "Dnc",
   "Thm", "Blm", "Acn", "Smn", "Rdm",
-  "carbuncle", "Garuda", "Titan", "Ifrit", "Eos", "Selene", "Rook", "Bishop", "choco",
+  "carbuncle", "Garuda", "Titan", "Ifrit", "Eos", "Selene", "Seraph", "Rook", "Bishop", "choco",
   "Alc", "Arm", "Bsm", "Crp", "Cul", "Gsm", "Ltw", "Wvr",
   "Btn", "Fsh", "Min"
 ]
@@ -162,6 +162,8 @@ function updateCombatantList(data) {
       combatant.JobOrName = "Eos";
     } else if (combatant.JobOrName.indexOf("Selene (") == 0) {
       combatant.JobOrName = "Selene";
+    } else if (combatant.JobOrName.indexOf("Seraph (") == 0) {
+      combatant.JobOrName = "Seraph";
     } else if (combatant.JobOrName.indexOf(" (") != -1) {
       combatant.JobOrName = "choco";
     }
